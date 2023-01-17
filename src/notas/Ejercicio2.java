@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class Ejercicio2 {
 	public static final int NOTA_MAXIMA = 10;
+	private static double max = 0;
+	private static double min = 10;
+	private static double media = 0;
 
 	public static void main(String[] args) {
 		// Variable para guardar el nombre del alumno
@@ -22,9 +25,6 @@ public class Ejercicio2 {
 
 		// Opción para el menú
 		int opcion;
-
-		// Variables para la nota máxima, mínima y media
-		double max = 0, min = 10, media = 0;
 
 		// Variable que cuenta los alumnos
 		int contador = 0;
@@ -84,6 +84,12 @@ public class Ejercicio2 {
 		System.out.println("3. Media de las notas");
 
 		opcion = leer.nextInt();
+		menu(opcion);
+
+		leer.close();
+	} // fin main
+
+	public static void menu(int opcion) {
 		switch (opcion) {
 		case 1:
 			System.out.println("La nota máxima es: " + max);
@@ -97,8 +103,6 @@ public class Ejercicio2 {
 		default:
 			System.out.println("La opción introducida no es válida");
 		}
-
-		leer.close();
-	} // fin main
+	}
 
 } // fin clase
