@@ -9,13 +9,14 @@ public class Ejercicio1 {
 	public static void main(String[] args) {
 		int numeroUsuario;
 		long numDivisores;
-		Scanner sc = new Scanner(System.in);
+		Scanner lectura;
+		lectura = new Scanner(System.in);
 		
-		numeroUsuario = sc.nextInt();
+		numeroUsuario = lectura.nextInt();
 		numDivisores = primeDivisors(numeroUsuario);
 		
 		System.out.println(MENSAJE + numDivisores);
-		sc.close();
+		lectura.close();
 	}
 
 	private static long primeDivisors(long number) {
@@ -23,7 +24,7 @@ public class Ejercicio1 {
 		
 		for(int i=2; i<=number; i++) {
 			boolean esDivisor = number%i==0;
-			if(esDivisor && esPrimo(i)) {
+			if(esDivisor && isPrime(i)) {
 				cont++;
 			}
 		}
@@ -31,10 +32,11 @@ public class Ejercicio1 {
 		return cont;
 	}
 	
-	public static boolean esPrimo(int numero) {
+	public static boolean isPrime(long number) {
 		boolean esPrimo = true;
-		for(int i=2; i<numero; i++) {
-			if(numero%i == 0) {
+		for(int i=2; i<number; i++) {
+			int modulo = number%i;
+			if(modulo == 0) {
 				esPrimo = false;
 				break;
 			}
